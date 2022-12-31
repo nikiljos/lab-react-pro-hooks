@@ -15,13 +15,11 @@ function App() {
 
 
   // should not change the LOGIC inside this function - you can make changes to the function but logic should NOT change
-  const delayFunction = (value)=> {
+  const delayFunction = useMemo(()=> {
     console.log("Delay Function Ran")
     for(let index=0; index<LARGE_NUMBER; index++){};
     return value+2;
-  
-  }
-  const noDelay = useMemo(() => delayFunction(value), [value]);
+  },[value])
 
   // should not change the LOGIC inside this function - you can make changes to the function but logic should NOT change
   const testFunction = useCallback(()=>{
@@ -69,7 +67,7 @@ function App() {
       <h1 >{value}</h1>
       <button onClick={handleChangeValue}>Change Value</button>
       <button onClick={handleList}>Show List</button>
-      <h2>{noDelay}</h2>
+      <h2>{delayFunction}</h2>
       <div>
         {currentList.map((item,index)=>{
           return <h2 key={index}>{item}</h2>
