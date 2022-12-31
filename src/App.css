@@ -4,8 +4,7 @@ h1,h2{
 }
 
 .page{
-  margin-left: 500px;
-  margin-top: 50px;
+  margin: 50px auto;
   height: 500px;
   width: 500px;
 }
